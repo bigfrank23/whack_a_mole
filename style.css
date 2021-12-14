@@ -1,0 +1,148 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{
+    font-family: 'Helvetica';
+    background: chocolate;
+}
+.wrapper{
+    border: 3px solid #010124;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: chocolate;
+    overflow: hidden;
+    cursor: pointer;
+}
+.score{
+    font-size: 150px;
+    color: #010124;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
+.countdown{
+    font-size: 20px;
+    background: #010124;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 12%;
+    /* transform: translate(-50%, -50%); */
+    padding: 2px;
+    display: none;
+}
+button{
+    background: #010124;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    padding: 20px 50px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.game{
+    width: 600px;
+    height: 400px;
+    margin: 70px auto;
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;
+}
+.hole{
+    flex: 1 0 33.33%;
+    position: relative;
+    overflow: hidden;
+
+}
+.hole::after{
+    content: '';
+    display: block;
+    background: url('images/dirt.png');
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    z-index: 2;
+    bottom: -30px;
+    background-size: contain;
+}
+.mole{
+    background: url('images/mole.png');
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.mole.small{
+    background-size: 40%;
+}
+.mole.large{
+    background-size: 50%;
+}
+.hole.up .mole{
+    top: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper {
+    width: 100%;
+    height: 100vh;
+    }
+    .game {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    z-index: 200;
+}
+.hole {
+    flex: 1 0 33.33%;
+    position: relative;
+    overflow: hidden;
+}
+.hole::after {
+    content: '';
+    display: block;
+    background: url(images/dirt.png);
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    z-index: 2;
+    bottom: -48px;
+    background-size: contain;
+}
+.countdown {
+    width: 30%;
+}
+.score{
+    top: 20px;
+    right: 0px;
+}
+}
+@media only screen and (max-width: 950px) {
+    .hole::after {
+    content: '';
+    display: block;
+    background: url(images/dirt.png);
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    z-index: 2;
+    bottom: -48px;
+    background-size: contain;
+}
+}
